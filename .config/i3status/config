@@ -12,15 +12,31 @@ general
     interval = 5
 }
 
-order += "wireless wlan0"
-order += "ethernet eth0"
+order += "volume master"
+order += "cpu_usage"
 order += "disk /"
 order += "battery 0"
+order += "wireless wlan0"
+order += "ethernet eth0"
 order += "tztime local"
+
+volume master
+{
+	format = " %volume"
+	format_muted = " 0%%"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+cpu_usage
+{
+	format = " %usage"
+}
 
 wireless wlan0 
 {
-	format_up = " %bitrate   %essid"
+	format_up = " %bitrate   %essid   %ip"
     format_down = ""
 }
 
@@ -44,10 +60,11 @@ battery 0
 
 tztime local 
 {
-	format = " %a, %d-%b-%Y    %H:%M"
+	format = " %a, %d %b   %H:%M"
 }
 
 disk "/" 
 {
 	format = " %avail"
+	prefix_type = "decimal"
 }
