@@ -2,7 +2,7 @@
 set nocompatible
 
 " enable syntax and nav three plugins
-syntax enable
+syntax on
 filetype plugin on
 
 " tab-completion for the pwd
@@ -21,6 +21,9 @@ set expandtab
 
 " Pathogen for plugin management
 execute pathogen#infect()
+
+" change the colorscheme
+colorscheme seti
 
 " NAVIGATION TWEAKS:
 let g:netrw_banner=0         " disable netrw banner
