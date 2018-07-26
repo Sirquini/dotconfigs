@@ -62,7 +62,7 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="\[$(tput setaf 1)\]┌─◊ \[$(tput setaf 7)\][\w] \[$(tput setaf 2)\]\$(parse_git_branch)\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────▸\"; else echo \"\[$(tput setaf 1)\]└▸\"; fi) \[$(tput setaf 7)\]"
+    PS1="$(if [[ ${EUID} == 0 ]]; then echo $(tput setaf 6); else echo $(tput setaf 1); fi)┌─◊ \[$(tput setaf 7)\][\w]\[$(tput setaf 2)\]\$(parse_git_branch)\n$(if [[ ${EUID} == 0 ]]; then echo $(tput setaf 6); else echo $(tput setaf 1); fi)└────▸ $(tput sgr0)"
 else
     PS1="┌─◊ [\w] \$(parse_git_branch)\n\$(if [[ \$? == 0 ]]; then echo \"└────▸\"; else echo \"└▸\"; fi) "
 fi
