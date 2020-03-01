@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -35,25 +35,13 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
-    else
-    color_prompt=
-    fi
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+# We have color support; assume it's compliant with Ecma-48
+# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+# a case would tend to support setf rather than setaf.)
+color_prompt=yes
+else
+color_prompt=
 fi
 
 # display git branch name
@@ -62,9 +50,17 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="$(if [[ ${EUID} == 0 ]]; then echo $(tput setaf 6); else echo $(tput setaf 1); fi)┌─◊ \[$(tput setaf 7)\][\w]\[$(tput setaf 2)\]\$(parse_git_branch)\n$(if [[ ${EUID} == 0 ]]; then echo $(tput setaf 6); else echo $(tput setaf 1); fi)└────▸ $(tput sgr0)"
+    if [[ ${EUID} == 0 ]]; then
+        color=$(tput setaf 6)
+    else
+	color=$(tput setaf 1)
+    fi
+    white=$(tput setaf 7)
+    green=$(tput setaf 2)
+    reset=$(tput sgr0)
+    PS1="\[$color\]┌◊ \[$white\][\w]\[$green\]\$(parse_git_branch)\n\[$color\]└───> \[$reset\]"
 else
-    PS1="┌─◊ [\w] \$(parse_git_branch)\n\$(if [[ \$? == 0 ]]; then echo \"└────▸\"; else echo \"└▸\"; fi) "
+    PS1="┌◊ [\w] \$(parse_git_branch)\n\$(if [[ \$? == 0 ]]; then echo \"└───>\"; else echo \"└─>\"; fi) "
 fi
 unset color_prompt force_color_prompt
 
