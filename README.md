@@ -1,13 +1,13 @@
-# DotConfigs
+# Dotconfigs
 
 Personal repository for keeping my configuration files for:
 
+- .vimrc
 - .bashrc
+- .xinitrc
+- .Xresources
 - i3
 - i3status
-- .vimrc
-
-The .bashrc is mostly the default Ubuntu 16.04 .bashrc file.
 
 Vim plugins:
 - [pathogen.vim](https://github.com/tpope/vim-pathogen)
@@ -15,4 +15,4 @@ Vim plugins:
 - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes): `git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes`
 - [seti.vim](https://github.com/trusktr/seti.vim): `git clone https://github.com/trusktr/seti.vim ~/.vim/bundle/seti.vim`
 
-I also included some of the fonts I included to the system.
+I also included some of the fonts for icons in i3status.
