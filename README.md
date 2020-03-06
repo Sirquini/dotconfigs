@@ -1,6 +1,6 @@
 # Dotconfigs
 
-Personal repository for keeping my configuration files for:
+Personal repository with my configuration files for:
 
 - .vimrc
 - .bashrc
