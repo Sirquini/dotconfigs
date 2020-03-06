@@ -2,8 +2,8 @@
 set nocompatible
 
 " enable syntax and nav three plugins
-syntax on
-filetype plugin on
+syntax enable
+filetype plugin indent on
 
 " tab-completion for the pwd
 set path+=**
@@ -11,13 +11,25 @@ set path+=**
 " show all results for tab complete
 set wildmenu
 
+" statusline appears all the time
+set laststatus=2
+ 
 " for tag navigation, may need to install ctags
 command! MakeTags !ctags -R
 
 " spaces for tabs
+set autoindent
 set tabstop=4 " :retab changes all previous tabs to spaces
 set shiftwidth=4 " space characters inserted for identation
 set expandtab
+
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:▸\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
 
 " Pathogen for plugin management
 execute pathogen#infect()
@@ -35,8 +47,5 @@ let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
 
 " VIM-AIRLINE:
 
-set laststatus=2 "statusline appear all the time
 let g:airline#extensions#tabline#enable=1 " show all buffers when one tab is open
 let g:airline_theme='badwolf'             " statusline theme
-
-
