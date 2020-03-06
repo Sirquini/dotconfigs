@@ -53,14 +53,14 @@ if [ "$color_prompt" = yes ]; then
     if [[ ${EUID} == 0 ]]; then
         color=$(tput setaf 6)
     else
-	color=$(tput setaf 1)
+        color=$(tput setaf 1)
     fi
     white=$(tput setaf 7)
     green=$(tput setaf 2)
     reset=$(tput sgr0)
-    PS1="\[$color\]┌◊ \[$white\][\w]\[$green\]\$(parse_git_branch)\n\[$color\]└───> \[$reset\]"
+    PS1="\[$color\]┌◊ \[$white\][\w]\[$green\]\$(parse_git_branch)\n\[$color\]└───► \[$reset\]"
 else
-    PS1="┌◊ [\w] \$(parse_git_branch)\n\$(if [[ \$? == 0 ]]; then echo \"└───>\"; else echo \"└─>\"; fi) "
+    PS1="┌◊ [\w] \$(parse_git_branch)\n\$(if [[ \$? == 0 ]]; then echo \"└───►\"; else echo \"└─►\"; fi) "
 fi
 unset color_prompt force_color_prompt
 
