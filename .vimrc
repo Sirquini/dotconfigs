@@ -13,7 +13,7 @@ set wildmenu
 
 " statusline appears all the time
 set laststatus=2
- 
+
 " for tag navigation, may need to install ctags
 command! MakeTags !ctags -R
 
