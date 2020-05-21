@@ -50,5 +50,6 @@ let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
 
 " VIM-AIRLINE:
 
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enable=1 " show all buffers when one tab is open
 let g:airline_theme='badwolf'             " statusline theme
