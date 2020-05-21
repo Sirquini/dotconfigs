@@ -24,6 +24,7 @@ hide_edge_borders both
 # STARTUP
 exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/main.png
 # exec firefox
+exec --no-startup-id picom -b
 
 # RESIZING
 # resize window (you can also use the mouse for that)
@@ -200,7 +201,7 @@ bindsym $mod+a focus parent
 bindsym $mod+s                  layout stacking
 bindsym $mod+Shift+s            sticky toggle
 
-bindsym $mod+d                  exec rofi -show run -lines 5 -eh 2 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Ubuntu Regular 18"
+bindsym $mod+d                  exec rofi -show run 
 # bindsym $mod+Shift+d
 
 bindsym $mod+f                  fullscreen toggle
@@ -249,9 +250,9 @@ bindsym F11                     fullscreen toggle
 # bindsym F12
 
 # media controlls
-bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 20 # increase screen brightness
