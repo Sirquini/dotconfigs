@@ -42,7 +42,9 @@
 
 ! Appearance
 
-URxvt.background: [80]#1d1f21
+URxvt.background: [90]#1d1f21
+
+URxvt.depth: 32
 
 URxvt.font:xft:Ubuntu\ Mono:size=12
 URxvt.letterSpace: 0
@@ -56,3 +58,27 @@ URxvt.urgentOnBell: true
 URxvt.heysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
+! "Number of lines" Set from: Default
+rofi.lines:                          5
+! "Number of columns" Set from: Default
+rofi.columns:                        1
+! "Font to use" Set from: Default
+rofi.font:                           Ubuntu Regular 18
+! "Border width" Set from: Default
+rofi.bw:                             0
+! "Location on screen" Set from: Default
+! rofi.location:                       0
+! "Padding" Set from: Default
+! rofi.padding:                        5
+! "Row height (in chars)" Set from: Default
+rofi.eh:                             2
+! "Fullscreen" Set from: Default
+! rofi.fullscreen:                     false
+! "Color scheme for normal row" BG FG BGALT HLBG HLFG
+rofi.color-normal:                   #2f343f,#f3f4f5,#2f343f,#2f343f,#9575cd
+! "Color scheme for urgent row" Set from: Default
+! rofi.color-urgent:                   
+! "Color scheme for active row" Set from: Default
+! rofi.color-active:                   
+! "Color scheme window" Set from: Default
+rofi.color-window:                   #2f343f,#f3f4f5,#2f343f,#2f343f,#9575cd
