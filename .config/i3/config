@@ -5,6 +5,7 @@
 # BASIC SETUP
 set $mod Mod4
 set $lock "~/.config/i3/lock.sh"
+set $wall "~/.config/i3/wallpaper.sh"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -169,7 +170,7 @@ bindsym $mod+q                  kill
 bindsym $mod+Shift+q            kill
 
 bindsym $mod+w                  layout tabbed
-# bindsym $mod+Shift+w
+bindsym $mod+Shift+w            exec $wall
 
 bindsym $mod+e                  layout toggle split
 # bindsym $mod+Shift+e
@@ -207,7 +208,7 @@ bindsym $mod+d                  exec rofi -show run
 bindsym $mod+f                  fullscreen toggle
 bindsym $mod+Shift+f            exec firefox ; workspace $workspace1
 
-# bindsym $mod+g
+bindsym $mod+g                  gaps inner current toggle 12
 # bindsym $mod+Shift+g
 
 bindsym $mod+h                  split h
@@ -261,3 +262,14 @@ bindsym XF86MonBrightnessDown   exec xbacklight -dec 20 # decrease screen bright
 # Windows redirections
 for_window [class="Firefox"] move to workspace $workspace1
 for_window [class="Code"] move to workspace $workspace2
+
+# Gaps
+gaps outer 12
+gaps inner 12
+
+# Only enable gaps on a workspace when there is at least one container
+# smart_gaps on
+
+# Only enable outer gaps when there is exactly one container
+smart_gaps inverse_outer
+
