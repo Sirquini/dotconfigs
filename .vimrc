@@ -14,6 +14,9 @@ set wildmenu
 " statusline appears all the time
 set laststatus=2
 
+" show relative line number
+set relativenumber
+
 " for tag navigation, may need to install ctags
 command! MakeTags !ctags -R
 
@@ -35,7 +38,7 @@ endif
 execute pathogen#infect()
 
 " change the colorscheme
-colorscheme seti
+" colorscheme seti
 
 " NAVIGATION TWEAKS:
 let g:netrw_banner=0         " disable netrw banner
