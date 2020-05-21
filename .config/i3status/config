@@ -18,6 +18,7 @@ order += "disk /"
 order += "battery 0"
 order += "wireless wlan0"
 order += "ethernet eth0"
+order += "ethernet enp0s3"
 order += "tztime local"
 
 volume master
@@ -37,7 +38,7 @@ cpu_usage
 wireless wlan0 
 {
 	format_up = " %bitrate   %essid   %ip"
-    format_down = ""
+    format_down = ""
 }
 
 ethernet eth0 
@@ -47,12 +48,19 @@ ethernet eth0
 	format_down = ""
 }
 
+ethernet enp0s3
+{
+    format_up =  " %speed"
+    format_down = ""
+}
+
 battery 0 
 {
     format_down = ""
 	status_chr = ""
 	status_bat = ""
 	status_full = ""
+    status_unk = ""
 	low_threshold = "15"
     path = "/sys/class/power_supply/BAT%d/uevent"
 	format = "%status %percentage"
